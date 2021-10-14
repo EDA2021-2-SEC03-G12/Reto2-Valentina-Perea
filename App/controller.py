@@ -52,8 +52,6 @@ def loadData(catalog):
     print("Nacionalidad"+str(t1))
     print("Medio"+str(t2))
     
-
-
 def loadArtists(catalog):
 
     start_time = time.process_time() 
@@ -88,4 +86,10 @@ def ArtistsSize(catalog):
 
 def ArtworksSize(catalog):
     return model.ArtworksSize(catalog)
+
+#Req 1
+
+def crono_artistas(catalog,f_i,f_f):
+    catalogo=catalog["Fecha Artistas"]
+    return model.crono_artistas(catalogo,f_i,f_f)
 

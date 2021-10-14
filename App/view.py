@@ -42,7 +42,7 @@ def printMenu():
     print("___________________________________________")
     print("")
     print("1 ) Cargar información en el catálogo")
-    print("2 ) Obras mas antiguas por medio")
+    print("2 ) Listar cronológicamente los artistas")
     print("0 ) Salir")
     print("")
     print("___________________________________________")
@@ -58,6 +58,14 @@ catalog = None
 
 #REQ1 [2]
 
+def crono_artistas(catalogo):
+    f_i=int(input("Ingrese la fecha minima de busqueda: "))
+    f_f=int(input("Ingrese la fecha maxima de busqueda: "))
+    info=controller.crono_artistas(catalogo,f_i,f_f)
+    return info
+
+#
+
 def medioAntiguo(catalog):
     num=int(input("Ingrese el numero de obras que quiere ver: "))
     medio=input("Ingrese el medio que desea consultar: ")
@@ -69,6 +77,7 @@ def medioAntiguo(catalog):
 while True:
     printMenu()
     inputs = input('Seleccione una opción para continuar\n')
+    
     if int(inputs[0]) == 1:
         print("Cargando información de los archivos ....") 
         catalog = initCatalog()
@@ -80,8 +89,9 @@ while True:
         print(" ")
 
     elif int(inputs[0]) == 2:
-        lista=medioAntiguo(catalog)
-        print(lista)
+        dic=crono_artistas(catalog)
+        for key,val in dic.items():
+            print(key,val)
 
     else:
         sys.exit(0)
