@@ -49,8 +49,6 @@ def loadData(catalog):
     t1=loadArtists(catalog)
     t2=loadArtworks(catalog)
     print("("+str(t1+t2)+")")
-    print("Nacionalidad"+str(t1))
-    print("Medio"+str(t2))
     
 def loadArtists(catalog):
 
@@ -76,6 +74,8 @@ def loadArtworks(catalog):
         
 # Funciones de ordenamiento
 
+
+
 # Funciones de consulta sobre el catálogo
 
 def medioAntiguo(catalog,num,medio):
@@ -93,3 +93,12 @@ def crono_artistas(catalog,f_i,f_f):
     catalogo=catalog["Fecha Artistas"]
     return model.crono_artistas(catalogo,f_i,f_f)
 
+#Req 3
+
+def artista_tecnica(catalog,nombre):
+    return model.artista_tecnica(catalog,nombre)
+
+#Req 5
+
+def transporteobras(catalog,depmuseo):
+    return model.transporteobras(catalog,depmuseo)

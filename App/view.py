@@ -43,6 +43,11 @@ def printMenu():
     print("")
     print("1 ) Cargar información en el catálogo")
     print("2 ) Listar cronológicamente los artistas")
+    print("3 ) Listar cronológicamente las adquisiciones")
+    print("4 ) Clasificar las obras de un artista por técnica")
+    print("5 ) Clasificar las obras por la nacionalidad de sus creadores")
+    print("6 ) Transportar obras de un departamento ")
+    print("7 ) Encontrar los artistas más prolíficos del museo ")
     print("0 ) Salir")
     print("")
     print("___________________________________________")
@@ -64,7 +69,16 @@ def crono_artistas(catalogo):
     info=controller.crono_artistas(catalogo,f_i,f_f)
     return info
 
-#
+#REQ3 [4]
+
+def artista_tecnica(catalogo):
+    nombre=(input("Ingrese el nombre del artista que desea consultar: "))
+    return controller.artista_tecnica(catalogo,nombre)
+
+#REQ5 [6]
+def transporteobras (catalog):
+    dep=input("Ingrese el departamento que desee buscar: ")
+    return controller.transporteobras(catalog,dep)
 
 def medioAntiguo(catalog):
     num=int(input("Ingrese el numero de obras que quiere ver: "))
@@ -93,6 +107,17 @@ while True:
         for key,val in dic.items():
             print(key,val)
 
+    elif int(inputs[0]) == 4:
+        dic=artista_tecnica(catalog)
+        for key,val in dic.items():
+            print(key,val)
+
+    elif int(inputs[0]) == 6:
+        dic=transporteobras(catalog)
+        for key,val in dic.items():
+            print(key,val)
+
     else:
         sys.exit(0)
+
 sys.exit(0)
